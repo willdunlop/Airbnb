@@ -3,6 +3,9 @@
       <div class="tnt-logo"></div>
       <a href="/" class="brand-logo">AirTnT - Explosive Accomodation</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li>
+        <%= link_to "New Room", new_room_path %>
+      </li>
         <!-- LOGIN/LOGOUT BUTTON -->
        <% if user_signed_in? %>
          <li>

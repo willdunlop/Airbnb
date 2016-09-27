@@ -1,0 +1,63 @@
+<%= form_for(room) do |f| %>
+  <% if room.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(room.errors.count, "error") %> prohibited this room from being saved:</h2>
+
+      <ul>
+      <% room.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="input-field">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "validate" %>
+  </div>
+
+  <div class="input-field">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: "validate" %>
+  </div>
+
+  <div class="input-field">
+    <%= f.label :accommodates %>
+    <%= f.number_field :accommodates, class: "validate", min: 0  %>
+  </div>
+
+  <div class="input-field">
+    <%= f.label :bathroom %>
+    <%= f.number_field :bathroom, class: "validate", min: 0 %>
+  </div>
+
+  <div class="input-field">
+    <%= f.label :price %>
+    <%= f.text_field :price, class: "validate", min: 0  %>
+  </div>
+
+  <div class="all-checker">
+
+    <input  type="checkbox" id="1" />
+      <label class="checker" for="1">
+        <%= f.label :kitchen %>
+        <%= f.check_box :kitchen %>
+      </label>
+
+  <input  type="checkbox" id="2" />
+    <label class="checker" for="2">
+    <%= f.label :internet %>
+    <%= f.check_box :internet %>
+  </label>
+
+<input type="checkbox" id="3" />
+  <label class="checker" for="3">
+    <%= f.label :pets %>
+    <%= f.check_box :pets %>
+  </label>
+</div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
