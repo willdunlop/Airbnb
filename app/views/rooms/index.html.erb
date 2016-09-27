@@ -9,7 +9,9 @@
       <div class="room-container">
         <div class="r-name">
         <%= room.name %>
-        <div class="r-image"> </div>
+        <div class="r-image">
+            <%= image_tag room.avatar, style: "width: 100%; height: auto; padding: 5px;" %>       
+           </div>
       </div>
 
       <div class="r-left">
