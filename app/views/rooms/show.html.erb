@@ -1,49 +1,52 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
+<div class="shroom-container">
+  <div class="r-name">
   <%= @room.name %>
-</p>
+  <div class="r-image">
+      <%= image_tag @room.avatar, style: "width: 100%; height: auto; padding: 5px;" %>
+     </div>
+     <div class="r-bools">
+     <div class="r-bools-left">
+     Accomodates: <%= @room.accommodates %>
+     Bathrooms: <%= @room.bathroom %>
+     </div>
+     <div class="r-bools-right">
+     Kitchen: <%= @room.kitchen %>
+     Wifi<%= @room.internet %>
+     Pets allowed: <%= @room.pets %>
+   </div>
+   <div class="r-price"><%= @room.price %></div>
+   </div>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @room.description %>
-</p>
+<div class="shr-left">
+<div class="r-user">
+  <h5>Details</h5>
 
-<p>
-  <strong>Accommodates:</strong>
-  <%= @room.accommodates %>
-</p>
+</div>
+<div class="r-details">
+  <div class="shr-desc">
+  <p>Owned By: <%= @room.user.firstname %></p>
+    <%= @room.description %>
+  </div>
+  <div class="r_photos">
+    <%= image_tag @room.avatar, style: "width: 150px; height: auto; padding: 5px; float: left;" %>
+    <%= image_tag @room.image1, style: "width: 150px; height: auto; padding: 5px; float: left;" %>
+    <%= image_tag @room.image2, style: "width: 150px; height: auto; padding: 5px; float: left;" %>
+    <%= image_tag @room.image3, style: "width: 150px; height: auto; padding: 5px; float: left;" %>       
 
-<p>
-  <strong>Bathroom:</strong>
-  <%= @room.bathroom %>
-</p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @room.price %>
-</p>
+</div>
 
-<p>
-  <strong>Kitchen:</strong>
-  <%= @room.kitchen %>
-</p>
 
-<p>
-  <strong>Internet:</strong>
-  <%= @room.internet %>
-</p>
+</div>
+</div>
 
-<p>
-  <strong>Pets:</strong>
-  <%= @room.pets %>
-</p>
+<%= link_to 'Show', @room %>
+<%= link_to 'Edit', edit_room_path(@room) %>
+<%= link_to 'Destroy', @room, method: :delete, data: { confirm: 'Are you sure?' } %>
 
-<p>
-  <strong>User:</strong>
-  <%= @room.user %>
-</p>
 
 <%= link_to 'Edit', edit_room_path(@room) %> |
-<%= link_to 'Back', rooms_path %>
+<%= link_to 'Back', @rooms_path %>
