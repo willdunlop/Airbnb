@@ -8,15 +8,15 @@
      </div>
      <div class="r-bools">
      <div class="r-bools-left">
-     Accomodates: <%= @room.accommodates %>
-     Bathrooms: <%= @room.bathroom %>
+     <p>Accomodates: <%= @room.accommodates %></p>
+     <p>Bathrooms: <%= @room.bathroom %></p>
      </div>
      <div class="r-bools-right">
-     Kitchen: <%= @room.kitchen %>
-     Wifi<%= @room.internet %>
-     Pets allowed: <%= @room.pets %>
+     <p>Kitchen: <%= @room.kitchen %></p>
+     <p>Wifi: <%= @room.internet %></p>
+     <p>Pets allowed: <%= @room.pets %></p>
    </div>
-   <div class="r-price"><%= @room.price %></div>
+   <div class="r-price">$<%= @room.price %> a night</div>
    </div>
 </div>
 
@@ -34,19 +34,22 @@
     <%= image_tag @room.avatar, style: "width: 150px; height: auto; padding: 5px; float: left;" %>
     <%= image_tag @room.image1, style: "width: 150px; height: auto; padding: 5px; float: left;" %>
     <%= image_tag @room.image2, style: "width: 150px; height: auto; padding: 5px; float: left;" %>
-    <%= image_tag @room.image3, style: "width: 150px; height: auto; padding: 5px; float: left;" %>       
+    <%= image_tag @room.image3, style: "width: 150px; height: auto; padding: 5px; float: left;" %>
 
 
 </div>
 
 
 </div>
+<div class="button-container">
+
+<%= link_to  edit_room_path(@room) do %>
+<div class="default-button">Edit</div>
+<%end%>
+
+<%= link_to  @room, method: :delete, data: { confirm: 'Are you sure?' } do %>
+<div class="default-button">Delete</div>
+<%end%>
 </div>
-
-<%= link_to 'Show', @room %>
-<%= link_to 'Edit', edit_room_path(@room) %>
-<%= link_to 'Destroy', @room, method: :delete, data: { confirm: 'Are you sure?' } %>
-
-
-<%= link_to 'Edit', edit_room_path(@room) %> |
-<%= link_to 'Back', @rooms_path %>
+</div>
+</div>
